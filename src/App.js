@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Button from "./components/Button/Button";
 
 function App() {
 	const [search, setSearch] = useState("");
@@ -14,9 +15,10 @@ function App() {
 					type='search'
 					onChange={(e) => setSearch(e.target.value)}
 				/>
-				<button
+				<Button
 					id='btnSearch'
-					onClick={(e) => {
+					type={"submit"}
+					handleClick={(e) => {
 						e.preventDefault();
 						let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
 						url = url.concat(search);
@@ -30,7 +32,7 @@ function App() {
 							.catch((err) => console.log(err));
 					}}>
 					Go
-				</button>
+				</Button>
 			</form>
 			{data && <img src={data} />}
 			{/* {data &&
