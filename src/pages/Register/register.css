@@ -1,0 +1,113 @@
+body{
+    background-color: rgb(237, 237, 237);
+}
+
+.register-form {
+    width: 25%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px 20px;
+    margin-top: 7em;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 20px #ccc;
+    
+    
+    
+}
+
+.register-form h1{
+    text-align: center;
+    margin-bottom: 30px;   
+    font-size: 25px;
+    
+}
+
+.register-form input:nth-child(1){
+    width: 90%;
+}
+
+.register-form input{
+    width: 90%;
+    margin-bottom: 15px;
+    text-align: center;
+    border: none;
+    background-color: rgb(238, 243, 247);
+    padding:8px;
+    font-weight: bold;
+}
+
+.register-form h2{
+    color:rgb(117, 117, 117);
+    font-size: 16px;
+}
+
+
+.register-form h2 a{
+    color: rgb(0, 19, 232);
+    text-decoration: none;
+}
+.register-form h2 a:hover{
+    color: rgb(0, 14, 169);
+    text-decoration: none;
+}
+
+.register-form form {
+    text-align: center;
+}
+
+.register-error{
+        background-color: rgba(255, 0, 0, 0.635);
+        padding: 0.3rem;
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 0.5rem;
+}
+.register-success{
+        background-color: rgba(0, 255, 204, 0.635);
+        padding: 0.3rem;
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 0.5rem;
+}
+
+@media only screen and (max-width: 870px){
+    .register-form {
+        width: 35%;
+        margin: 0 auto;
+        background-color: white;
+        padding: 40px 20px;
+        margin-top: 7em;
+        border: 1px solid #ccc;
+        box-shadow: 0px 0px 20px #ccc;
+        
+    }
+}
+
+@media only screen and (max-width: 670px){
+    .register-form {
+        width: 35%;
+        margin: 0 auto;
+        background-color: white;
+        padding: 40px 20px;
+        margin-top: 7em;
+        border: 1px solid #ccc;
+        box-shadow: 0px 0px 20px #ccc;
+        
+    }
+}
+
+@media only screen and (max-width: 670px){
+    .register-form {
+        width: 45%;
+        margin: 0 auto;
+        background-color: white;
+        padding: 40px 20px;
+        margin-top: 7em;
+        border: 1px solid #ccc;
+        box-shadow: 0px 0px 20px #ccc;
+        
+    }
+}
+

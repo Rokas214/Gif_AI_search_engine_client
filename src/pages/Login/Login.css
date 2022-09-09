@@ -2,10 +2,6 @@ body{
     background-color: rgb(237, 237, 237);
 }
 
-.btx{
-    display: flex;
-    margin-left: 1rem;
-}
 
 .login-form {
     width: 25%;
@@ -14,7 +10,6 @@ body{
     padding: 40px 20px;
     margin-top: 7em;
     border: 1px solid #ccc;
-    border-radius: 10px;
     box-shadow: 0px 0px 20px #ccc;
     
 }
@@ -27,19 +22,22 @@ body{
 }
 
 .login-form input{
-    width: 85%;
+    width: 90%;
     margin-bottom: 15px;
     text-align: center;
     border: none;
     background-color: rgb(238, 243, 247);
     padding:8px;
-    border-radius: 10px;
     font-weight: bold;
+}
+.login-form input:nth-child(2){
+    margin-bottom: 1rem;
 }
 
 .login-form h2{
     color:rgb(117, 117, 117);
     font-size: 16px;
+    margin-top: 1.5rem;
 }
 
 
@@ -65,7 +63,6 @@ body{
     padding: 0.3rem;
     width: 87%;
     margin: 0 auto;
-    border-radius: 10px;
     text-align: center;
     margin-bottom: 0.5rem;
 }
@@ -79,7 +76,6 @@ body{
         padding: 40px 20px;
         margin-top: 7em;
         border: 1px solid #ccc;
-        border-radius: 10px;
         box-shadow: 0px 0px 20px #ccc;
         
     }
@@ -93,7 +89,6 @@ body{
         padding: 40px 20px;
         margin-top: 7em;
         border: 1px solid #ccc;
-        border-radius: 10px;
         box-shadow: 0px 0px 20px #ccc;
         
     }
@@ -107,7 +102,6 @@ body{
         padding: 40px 20px;
         margin-top: 7em;
         border: 1px solid #ccc;
-        border-radius: 10px;
         box-shadow: 0px 0px 20px #ccc;
         
     }
