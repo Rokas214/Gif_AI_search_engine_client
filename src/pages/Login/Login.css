@@ -1,0 +1,114 @@
+body{
+    background-color: rgb(237, 237, 237);
+}
+
+.btx{
+    display: flex;
+    margin-left: 1rem;
+}
+
+.login-form {
+    width: 25%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px 20px;
+    margin-top: 7em;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px #ccc;
+    
+}
+
+.login-form h1{
+    text-align: center;
+    margin-bottom: 30px;   
+    font-size: 25px;
+    
+}
+
+.login-form input{
+    width: 85%;
+    margin-bottom: 15px;
+    text-align: center;
+    border: none;
+    background-color: rgb(238, 243, 247);
+    padding:8px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.login-form h2{
+    color:rgb(117, 117, 117);
+    font-size: 16px;
+}
+
+
+.login-form h2 a{
+    color: rgb(151, 99, 201);
+    text-decoration: none;
+}
+.login-form h2 a:hover{
+    color: rgb(140, 63, 213);
+    text-decoration: none;
+}
+
+.login-form form {
+    text-align: center;
+}
+
+.login-form .email {
+    width: 90%;
+}
+
+.login-error{
+    background-color: rgba(255, 0, 0, 0.71);
+    padding: 0.3rem;
+    width: 87%;
+    margin: 0 auto;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+
+@media only screen and (max-width: 870px){
+    .login-form {
+        width: 35%;
+        margin: 0 auto;
+        background-color: white;
+        padding: 40px 20px;
+        margin-top: 7em;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px #ccc;
+        
+    }
+}
+
+@media only screen and (max-width: 670px){
+    .login-form {
+        width: 35%;
+        margin: 0 auto;
+        background-color: white;
+        padding: 40px 20px;
+        margin-top: 7em;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px #ccc;
+        
+    }
+}
+
+@media only screen and (max-width: 670px){
+    .login-form {
+        width: 45%;
+        margin: 0 auto;
+        background-color: white;
+        padding: 40px 20px;
+        margin-top: 7em;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px #ccc;
+        
+    }
+}
