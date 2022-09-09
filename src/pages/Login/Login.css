@@ -44,11 +44,11 @@ body{
 
 
 .login-form h2 a{
-    color: rgb(151, 99, 201);
+    color: rgb(0, 19, 232);
     text-decoration: none;
 }
 .login-form h2 a:hover{
-    color: rgb(140, 63, 213);
+    color: rgb(0, 14, 169);
     text-decoration: none;
 }
 

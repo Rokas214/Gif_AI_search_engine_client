@@ -10,7 +10,8 @@
     position: relative;
     display: inline-flex;
     max-width: 20rem;
-    min-height: 3rem;
+    min-height: 2rem;
+    height: 1rem;
     flex-shrink: 0;
     align-items: center;
     justify-content: space-between;
