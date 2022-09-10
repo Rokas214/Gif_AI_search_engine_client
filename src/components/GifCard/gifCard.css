@@ -1,0 +1,9 @@
+.gif-card {
+    display: flex;
+}
+.gif-card img{
+    width: 15rem;
+    height: 12rem;
+    margin: 1rem;
+    display: flex;
+}
