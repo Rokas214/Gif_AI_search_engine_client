@@ -34,34 +34,35 @@ function Home() {
 	return (
 		<div className='App'>
 			<form>
-				<div>Search for a gif</div>
-				<input
-					id='search'
-					type='search'
-					onChange={(e) => setSearch(e.target.value)}
-				/>
-				<Button
-					id='btnSearch'
-					type={"submit"}
-					handleClick={(e) => {
-						e.preventDefault();
-						let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
-						url = url.concat(search);
-						fetch(url)
-							.then((res) => res.json())
-							.then((data) => {
-								setData(data.data[0].images.downsized.url);
-								setHistoryData(data.data[0].images.downsized.url);
-							})
-							.catch((err) => console.log(err));
-					}}>
-					Go
-				</Button>
+				<div className='search-input'>
+					<input
+						id='search'
+						type='text'
+						placeholder='Search for a gif'
+						onChange={(e) => setSearch(e.target.value)}
+					/>
+					<Button
+						id='btnSearch'
+						type={"submit"}
+						handleClick={(e) => {
+							e.preventDefault();
+							let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
+							url = url.concat(search);
+							fetch(url)
+								.then((res) => res.json())
+								.then((data) => {
+									setData(data.data[0].images.downsized.url);
+									setHistoryData(data.data[0].images.downsized.url);
+								})
+								.catch((err) => console.log(err));
+						}}>
+						Search
+					</Button>
+				</div>
 			</form>
 			{historyData && SaveData()}
-			NOW
 			{getData && <img src={getData} />}
-			<div style={{ marginTop: "25rem" }}>
+			<div style={{ marginTop: "11rem" }}>
 				<div className='history'>Last Searches</div>
 				<div style={{ display: "flex", flexWrap: "wrap", marginLeft: "1rem" }}>
 					{gifHistory &&
