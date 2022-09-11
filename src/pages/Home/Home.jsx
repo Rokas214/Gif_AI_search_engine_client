@@ -62,12 +62,13 @@ function Home() {
 			NOW
 			{getData && <img src={getData} />}
 			<div style={{ marginTop: "25rem" }}>
-				HISTORY
-				<div style={{ display: "flex", flexWrap: "wrap" }}></div>
-				{gifHistory &&
-					gifHistory.map((item) => (
-						<GifCard className='gif-card' url={item.url} />
-					))}
+				<div className='history'>Last Searches</div>
+				<div style={{ display: "flex", flexWrap: "wrap", marginLeft: "1rem" }}>
+					{gifHistory &&
+						gifHistory.map((item) => (
+							<GifCard className='gif-card' url={item.url} />
+						))}
+				</div>
 			</div>
 		</div>
 	);
