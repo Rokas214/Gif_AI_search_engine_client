@@ -3,8 +3,10 @@ import Button from "../../components/Button/Button";
 import GifCard from "../../components/GifCard/GifCard";
 import "./home.css";
 import Nav from "../../components/Nav/Nav";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+	const navigate = useNavigate();
 	const [search, setSearch] = useState("");
 	const [getData, setData] = useState("");
 	const [gifHistory, setGifHistory] = useState();
@@ -14,7 +16,12 @@ function Home() {
 	let APIKEY = "csKsuRSqPbfsq1N4F9nm9Sf8W20orNUJ";
 
 	useEffect(() => {
-		fetch("http://localhost:8080/")
+		fetch("http://localhost:8080/", {
+			headers: {
+				email: localStorage.getItem("email"),
+				authorization: `Bearer ${localStorage.getItem("token")}`,
+			},
+		})
 			.then((res) => res.json())
 			.then((data) => setGifHistory(data));
 	}, []);
@@ -27,6 +34,7 @@ function Home() {
 			},
 			body: JSON.stringify({
 				url: getData,
+				email: localStorage.getItem("email"),
 			}),
 		})
 			.then((res) => res.json())
@@ -47,6 +55,7 @@ function Home() {
 
 	return (
 		<div className='App'>
+			{!localStorage.getItem("token") && navigate("/login")}
 			<Nav />
 			<form>
 				<div className='search-input'>
@@ -64,7 +73,7 @@ function Home() {
 							let giphyUrl = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
 
 							if (search.includes("https")) {
-								fetch("http://localhost:8080/watson", {
+								fetch("http://localhost:8080/watson-url", {
 									method: "POST",
 									headers: {
 										"Content-Type": "application/json",
@@ -77,7 +86,7 @@ function Home() {
 									.then((data) => setWatsonResult(data))
 									.catch((err) => console.log(err));
 							} else if (search.split(" ").length > 3) {
-								fetch("http://localhost:8080/watsonv3", {
+								fetch("http://localhost:8080/watson-text", {
 									method: "POST",
 									headers: {
 										"Content-Type": "application/json",
