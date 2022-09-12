@@ -10,15 +10,17 @@ body{
 }
 
 .search-input{
-    width: 80%;
+    width: 40%;
     margin: 0 auto;
-    margin-top: 2rem;
+    margin-top: 4rem;
+    text-align: center;
    
 
 }
 
 .search-input button {
     margin-top: 2rem;
+    
     
 }
 
