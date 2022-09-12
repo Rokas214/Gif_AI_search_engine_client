@@ -1,0 +1,39 @@
+.nav{
+    background-color: #3b3b3b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+}
+.links {
+    margin: 1rem 0rem;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem;
+    
+}
+
+.link:hover{
+    color: rgb(0, 255, 255);
+}
+
+
+
+.links-block {
+    display: flex;
+    justify-content: space-between;
+    background-color: #3b3b3b;
+    width: 80%;
+    margin: 0 auto;
+    
+}
+
+.logout{
+    margin-right: 0.7rem;
+    color: rgb(255, 255, 255);
+}
+
