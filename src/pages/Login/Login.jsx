@@ -11,9 +11,6 @@ const Login = () => {
 
 	return (
 		<>
-			<div>
-				<Link to={"/home"}>Home</Link>
-			</div>
 			<div className='login-form'>
 				<h1>Login</h1>
 				{getNotification && (
