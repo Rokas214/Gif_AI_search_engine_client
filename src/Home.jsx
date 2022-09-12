@@ -46,33 +46,15 @@ function Home() {
 						type={"submit"}
 						handleClick={(e) => {
 							e.preventDefault();
-							let giphyUrl = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
-							giphyUrl = giphyUrl.concat(search);
-
-							if (search.includes("https")) {
-								fetch("http://localhost:8080/watson", {
-									method: "POST",
-									headers: {
-										"Content-Type": "application/json",
-									},
-									body: JSON.stringify({
-										url: search,
-									}),
+							let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
+							url = url.concat(search);
+							fetch(url)
+								.then((res) => res.json())
+								.then((data) => {
+									setData(data.data[0].images.downsized.url);
+									setHistoryData(data.data[0].images.downsized.url);
 								})
-									.then((res) => res.json())
-									.then((data) => {
-										console.log(data);
-									})
-									.catch((err) => console.log(err));
-							} else {
-								fetch(giphyUrl)
-									.then((res) => res.json())
-									.then((data) => {
-										setData(data.data[0].images.downsized.url);
-										setHistoryData(data.data[0].images.downsized.url);
-									})
-									.catch((err) => console.log(err));
-							}
+								.catch((err) => console.log(err));
 						}}>
 						Search
 					</Button>
