@@ -66,13 +66,11 @@ function Home() {
 			<form>
 				<div className='search-input'>
 					<input
-						id='search'
 						type='text'
 						placeholder='Type phrase, sentence, article, url...'
 						onChange={(e) => setSearch(e.target.value)}
 					/>
 					<Button
-						id='btnSearch'
 						type={"submit"}
 						handleClick={(e) => {
 							e.preventDefault();
@@ -128,7 +126,7 @@ function Home() {
 			)}
 			<div style={{ marginTop: "5rem" }}>
 				<div className='history'>Last Searches</div>
-				<div style={{ display: "flex", flexWrap: "wrap", marginLeft: "1rem" }}>
+				<div className='gif-card'>
 					{gifHistory &&
 						gifHistory.map((item) => (
 							<GifCard className='gif-card' url={item.url} key={item.url} />
