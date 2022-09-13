@@ -24,7 +24,7 @@ const Login = () => {
 				<form
 					onSubmit={(e) => {
 						e.preventDefault();
-						fetch("http://localhost:8080/auth/login", {
+						fetch("https://ibmtaskexample.azurewebsites.net/auth/login", {
 							method: "POST",
 							headers: {
 								"Content-Type": "Application/json",
