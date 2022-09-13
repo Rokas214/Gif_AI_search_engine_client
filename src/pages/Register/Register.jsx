@@ -3,15 +3,20 @@ import "./register.css";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import { useState } from "react";
+import Nav from "../../components/Nav/Nav";
 
 const Register = () => {
 	const [inputs, setInputs] = useState();
+	const [email, setEmail] = useState();
 	const [error, setError] = useState();
 	const [notification, setNotification] = useState("");
 	const navigate = useNavigate();
 
 	return (
 		<>
+			<Nav />
+
+			<Link to={"/home"}>Home</Link>
 			<div className='register-form'>
 				<h1>Register</h1>
 				{error && <div className='register-error'>{error}</div>}
@@ -43,15 +48,15 @@ const Register = () => {
 							if (inputs.passwordOne !== inputs.passwordTwo) {
 								return setError("Password should match!");
 							}
-							if (inputs.passwordOne.length <= 6) {
+							if (inputs.passwordOne.length < 6) {
 								return setError(
 									"Password should be atleast 6 characters long "
 								);
 							}
-							fetch("https://ibmtaskexample.azurewebsites.net/auth/register", {
+							fetch("http://localhost:8080/auth/register", {
 								method: "POST",
 								headers: {
-									"Content-Type": "application/json",
+									"Content-Type": "Application/json",
 								},
 								body: JSON.stringify(inputs),
 							})
