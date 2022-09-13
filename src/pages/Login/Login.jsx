@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
+import Nav from "../../components/Nav/Nav";
 
 const Login = () => {
 	const [inputs, setInputs] = useState();
@@ -11,6 +12,10 @@ const Login = () => {
 
 	return (
 		<>
+			<Nav />
+			<div>
+				<Link to={"/home"}>Home</Link>
+			</div>
 			<div className='login-form'>
 				<h1>Login</h1>
 				{getNotification && (
