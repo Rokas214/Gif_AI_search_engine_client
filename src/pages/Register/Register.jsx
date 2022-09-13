@@ -48,7 +48,7 @@ const Register = () => {
 									"Password should be atleast 6 characters long "
 								);
 							}
-							fetch("https://ibmtaskexample.azurewebsites.net/auth/login", {
+							fetch("https://ibmtaskexample.azurewebsites.net/auth/register", {
 								method: "POST",
 								headers: {
 									"Content-Type": "application/json",

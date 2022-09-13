@@ -125,7 +125,7 @@ function Home() {
 				<div style={{ display: "flex", flexWrap: "wrap", marginLeft: "1rem" }}>
 					{gifHistory &&
 						gifHistory.map((item) => (
-							<GifCard className='gif-card' url={item.url} />
+							<GifCard className='gif-card' url={item.url} key={item.url} />
 						))}
 				</div>
 			</div>
