@@ -4,6 +4,7 @@ import GifCard from "../../components/GifCard/GifCard";
 import "./home.css";
 import Nav from "../../components/Nav/Nav";
 import { useNavigate } from "react-router-dom";
+import Notification from "../../components/Notification/Notification";
 
 function Home() {
 	const navigate = useNavigate();
@@ -12,6 +13,7 @@ function Home() {
 	const [gifHistory, setGifHistory] = useState();
 	const [historyData, setHistoryData] = useState();
 	const [watsonResult, setWatsonResult] = useState();
+	const [notification, setNotification] = useState();
 
 	let APIKEY = "csKsuRSqPbfsq1N4F9nm9Sf8W20orNUJ";
 
@@ -23,7 +25,8 @@ function Home() {
 			},
 		})
 			.then((res) => res.json())
-			.then((data) => setGifHistory(data));
+			.then((data) => setGifHistory(data))
+			.catch((err) => setNotification(err));
 	}, []);
 
 	const SaveData = () => {
@@ -38,7 +41,8 @@ function Home() {
 			}),
 		})
 			.then((res) => res.json())
-			.then((data) => setHistoryData(false));
+			.then((data) => setHistoryData(false))
+			.catch((err) => setNotification(err));
 	};
 
 	const watsonGif = () => {
@@ -51,11 +55,12 @@ function Home() {
 				setHistoryData(data.data[0].images.downsized.url);
 				setWatsonResult(false);
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => setNotification(err));
 	};
 
 	return (
 		<div className='App'>
+			{notification && <Notification children={"error"} />}
 			{!localStorage.getItem("token") && navigate("/login")}
 			<Nav />
 			<form>
@@ -84,7 +89,7 @@ function Home() {
 								})
 									.then((res) => res.json())
 									.then((data) => setWatsonResult(data))
-									.catch((err) => console.log(err));
+									.catch((err) => setNotification(err));
 							} else if (search.split(" ").length > 3) {
 								let validatedSearch = search.replace((/['"]+/g, ""));
 								fetch("https://ibmtaskexample.azurewebsites.net/watson-text", {
@@ -98,7 +103,7 @@ function Home() {
 								})
 									.then((res) => res.json())
 									.then((data) => setWatsonResult(data))
-									.catch((err) => console.log(err));
+									.catch((err) => setNotification(err));
 							} else {
 								giphyUrl = giphyUrl.concat(search);
 								fetch(giphyUrl)
@@ -107,7 +112,7 @@ function Home() {
 										setData(data.data[0].images.downsized.url);
 										setHistoryData(data.data[0].images.downsized.url);
 									})
-									.catch((err) => console.log(err));
+									.catch((err) => setNotification(err));
 							}
 						}}>
 						Search
