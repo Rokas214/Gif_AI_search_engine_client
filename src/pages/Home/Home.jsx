@@ -25,7 +25,13 @@ function Home() {
 			},
 		})
 			.then((res) => res.json())
-			.then((data) => setGifHistory(data))
+			.then((data) => {
+				if (data.length < 1) {
+					return data;
+				} else {
+					setGifHistory(data);
+				}
+			})
 			.catch((err) => setNotification(err));
 	}, []);
 
@@ -64,6 +70,14 @@ function Home() {
 			{!localStorage.getItem("token") && navigate("/login")}
 			<Nav />
 			<form>
+				<div className='gif-div'>
+					<img
+						className='gif-image'
+						src={
+							"https://upload.wikimedia.org/wikipedia/commons/8/82/Giphy-logo.svg"
+						}
+					/>
+				</div>
 				<div className='search-input'>
 					<input
 						type='text'
@@ -125,7 +139,7 @@ function Home() {
 				</div>
 			)}
 			<div style={{ marginTop: "5rem" }}>
-				<div className='history'>Last Searches</div>
+				{gifHistory && <div className='history'>Last Searches</div>}
 				<div className='gif-card'>
 					{gifHistory &&
 						gifHistory.map((item) => (
