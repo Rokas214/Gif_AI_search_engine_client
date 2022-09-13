@@ -16,7 +16,7 @@ function Home() {
 	let APIKEY = "csKsuRSqPbfsq1N4F9nm9Sf8W20orNUJ";
 
 	useEffect(() => {
-		fetch("http://localhost:8080/", {
+		fetch("https://ibmtaskexample.azurewebsites.net/", {
 			headers: {
 				email: localStorage.getItem("email"),
 				authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -27,7 +27,7 @@ function Home() {
 	}, []);
 
 	const SaveData = () => {
-		fetch("http://localhost:8080/gifhistory", {
+		fetch("https://ibmtaskexample.azurewebsites.net/gifhistory", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -73,7 +73,7 @@ function Home() {
 							let giphyUrl = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
 
 							if (search.includes("https")) {
-								fetch("http://localhost:8080/watson-url", {
+								fetch("https://ibmtaskexample.azurewebsites.net/watson-url", {
 									method: "POST",
 									headers: {
 										"Content-Type": "application/json",
@@ -86,7 +86,7 @@ function Home() {
 									.then((data) => setWatsonResult(data))
 									.catch((err) => console.log(err));
 							} else if (search.split(" ").length > 3) {
-								fetch("http://localhost:8080/watson-text", {
+								fetch("https://ibmtaskexample.azurewebsites.net/watson-text", {
 									method: "POST",
 									headers: {
 										"Content-Type": "application/json",
