@@ -72,7 +72,6 @@ function Home() {
 						handleClick={(e) => {
 							e.preventDefault();
 							let giphyUrl = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
-							let validatedSearch = search.replace((/['"]+/g, ""));
 							if (search.includes("https")) {
 								fetch("https://ibmtaskexample.azurewebsites.net/watson-url", {
 									method: "POST",
@@ -80,13 +79,14 @@ function Home() {
 										"Content-Type": "application/json",
 									},
 									body: JSON.stringify({
-										url: validatedSearch,
+										url: search,
 									}),
 								})
 									.then((res) => res.json())
 									.then((data) => setWatsonResult(data))
 									.catch((err) => console.log(err));
 							} else if (search.split(" ").length > 3) {
+								let validatedSearch = search.replace((/['"]+/g, ""));
 								fetch("https://ibmtaskexample.azurewebsites.net/watson-text", {
 									method: "POST",
 									headers: {
@@ -100,7 +100,7 @@ function Home() {
 									.then((data) => setWatsonResult(data))
 									.catch((err) => console.log(err));
 							} else {
-								giphyUrl = giphyUrl.concat(validatedSearch);
+								giphyUrl = giphyUrl.concat(search);
 								fetch(giphyUrl)
 									.then((res) => res.json())
 									.then((data) => {
