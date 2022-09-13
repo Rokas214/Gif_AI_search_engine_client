@@ -16,7 +16,7 @@ function Home() {
 	let APIKEY = "csKsuRSqPbfsq1N4F9nm9Sf8W20orNUJ";
 
 	useEffect(() => {
-		fetch("http://localhost:8080/", {
+		fetch("https://ibmtaskexample.azurewebsites.net", {
 			headers: {
 				email: localStorage.getItem("email"),
 				authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -27,7 +27,7 @@ function Home() {
 	}, []);
 
 	const SaveData = () => {
-		fetch("http://localhost:8080/gifhistory", {
+		fetch("https://ibmtaskexample.azurewebsites.net/gifhistory", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -49,6 +49,7 @@ function Home() {
 			.then((data) => {
 				setData(data.data[0].images.downsized.url);
 				setHistoryData(data.data[0].images.downsized.url);
+				setWatsonResult(false);
 			})
 			.catch((err) => console.log(err));
 	};
@@ -71,35 +72,35 @@ function Home() {
 						handleClick={(e) => {
 							e.preventDefault();
 							let giphyUrl = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
-
+							let validatedSearch = search.replace((/['"]+/g, ""));
 							if (search.includes("https")) {
-								fetch("http://localhost:8080//watson-url", {
+								fetch("https://ibmtaskexample.azurewebsites.net/watson-url", {
 									method: "POST",
 									headers: {
 										"Content-Type": "application/json",
 									},
 									body: JSON.stringify({
-										url: search,
+										url: validatedSearch,
 									}),
 								})
 									.then((res) => res.json())
 									.then((data) => setWatsonResult(data))
 									.catch((err) => console.log(err));
 							} else if (search.split(" ").length > 3) {
-								fetch("http://localhost:8080/watson-text", {
+								fetch("https://ibmtaskexample.azurewebsites.net/watson-text", {
 									method: "POST",
 									headers: {
 										"Content-Type": "application/json",
 									},
 									body: JSON.stringify({
-										text: search,
+										text: validatedSearch,
 									}),
 								})
 									.then((res) => res.json())
 									.then((data) => setWatsonResult(data))
 									.catch((err) => console.log(err));
 							} else {
-								giphyUrl = giphyUrl.concat(search);
+								giphyUrl = giphyUrl.concat(validatedSearch);
 								fetch(giphyUrl)
 									.then((res) => res.json())
 									.then((data) => {
