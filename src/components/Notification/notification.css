@@ -1,0 +1,10 @@
+.notification{ 
+    background-color: rgba(252, 112, 112, 0.658);
+    height: 2rem;
+    margin-top: 3rem;
+}
+
+.notification h1{
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
