@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 function Home() {
 	const navigate = useNavigate();
-	const [search, setSearch] = useState("");
-	const [getData, setData] = useState("");
+	const [search, setSearch] = useState();
+	const [getData, setData] = useState();
 	const [gifHistory, setGifHistory] = useState();
 	const [historyData, setHistoryData] = useState();
 	const [watsonResult, setWatsonResult] = useState();

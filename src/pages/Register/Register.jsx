@@ -12,7 +12,6 @@ const Register = () => {
 
 	return (
 		<>
-			<Link to={"/home"}>Home</Link>
 			<div className='register-form'>
 				<h1>Register</h1>
 				{error && <div className='register-error'>{error}</div>}
