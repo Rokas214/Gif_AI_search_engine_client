@@ -53,7 +53,7 @@ const Register = () => {
 									"Password should be atleast 6 characters long "
 								);
 							}
-							fetch("http://localhost:8080/auth/register", {
+							fetch("https://ibmtaskexample.azurewebsites.net/auth/register", {
 								method: "POST",
 								headers: {
 									"Content-Type": "Application/json",
