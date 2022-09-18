@@ -15,7 +15,7 @@ function Home() {
 	const [watsonResult, setWatsonResult] = useState();
 	const [notification, setNotification] = useState();
 
-	let APIKEY = "csKsuRSqPbfsq1N4F9nm9Sf8W20orNUJ";
+	let APIKEY = process.env.React_App_GIPHY_API;
 
 	useEffect(() => {
 		fetch("https://ibmtaskexample.azurewebsites.net", {
