@@ -52,7 +52,7 @@ function Home() {
 	};
 
 	const watsonGif = () => {
-		let giphyUrl = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
+		let giphyUrl = process.env.React_app_GIPHY_URL;
 		giphyUrl = giphyUrl.concat(watsonResult);
 		fetch(giphyUrl)
 			.then((res) => res.json())
