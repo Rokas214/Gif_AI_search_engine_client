@@ -15,10 +15,11 @@ function Home() {
 	const [watsonResult, setWatsonResult] = useState();
 	const [notification, setNotification] = useState();
 
-	let APIKEY = process.env.React_App_GIPHY_API;
+	let APIKEY = process.env.REACT_APP_GIPHY_API;
+	let serverUrl = process.env.REACT_APP_SERVER_URL;
 
 	useEffect(() => {
-		fetch("https://ibmtaskexample.azurewebsites.net", {
+		fetch(serverUrl, {
 			headers: {
 				email: localStorage.getItem("email"),
 				authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -36,7 +37,7 @@ function Home() {
 	}, []);
 
 	const SaveData = () => {
-		fetch("https://ibmtaskexample.azurewebsites.net/gifhistory", {
+		fetch(serverUrl + "/gifhistory", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -52,7 +53,7 @@ function Home() {
 	};
 
 	const watsonGif = () => {
-		let giphyUrl = process.env.React_app_GIPHY_URL;
+		let giphyUrl = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
 		giphyUrl = giphyUrl.concat(watsonResult);
 		fetch(giphyUrl)
 			.then((res) => res.json())
@@ -68,6 +69,7 @@ function Home() {
 		<div className='App'>
 			{notification && <Notification children={"error"} />}
 			{!localStorage.getItem("token") && navigate("/login")}
+
 			<Nav />
 			<form>
 				<div className='gif-div'>
@@ -90,7 +92,7 @@ function Home() {
 							e.preventDefault();
 							let giphyUrl = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
 							if (search.includes("https")) {
-								fetch("https://ibmtaskexample.azurewebsites.net/watson-url", {
+								fetch(serverUrl + "/watson-url", {
 									method: "POST",
 									headers: {
 										"Content-Type": "application/json",
@@ -104,7 +106,7 @@ function Home() {
 									.catch((err) => setNotification(err));
 							} else if (search.split(" ").length > 3) {
 								let validatedSearch = search.replace((/['"]+/g, ""));
-								fetch("https://ibmtaskexample.azurewebsites.net/watson-text", {
+								fetch(serverUrl + "/watson-text", {
 									method: "POST",
 									headers: {
 										"Content-Type": "application/json",
