@@ -74,6 +74,10 @@ function Home() {
 			<form>
 				<div className='gif-div'>
 					<img
+						onClick={(e) => {
+							e.preventDefault();
+							window.location.reload();
+						}}
 						className='gif-image'
 						src={
 							"https://upload.wikimedia.org/wikipedia/commons/8/82/Giphy-logo.svg"
