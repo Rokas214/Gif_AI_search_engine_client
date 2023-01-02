@@ -9,7 +9,7 @@ https://github.com/Rokas214/Gif_search_engine_server
 
 When your server side is all set and done You can clone this app by copying this code in to your terminal:
 
-'git clone https://github.com/Rokas214/ibmtaskclient my-app'
+'git clone https://github.com/Rokas214/Gif_search_engine_server my-app'
 
 To start the app
 
