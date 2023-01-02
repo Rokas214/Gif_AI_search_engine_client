@@ -5,7 +5,7 @@ This is search engine app, that searches for most relevant gif. Using IBM AI Wat
 Live demo: https://master.d1p4lagf8uxgt4.amplifyapp.com/ (deployed on AWS cloud)
 
 Before you start working with react you should first prepare your server side, witch you can find here with more information:
-https://github.com/Rokas214/ibmtaskserver
+https://github.com/Rokas214/Gif_search_engine_server
 
 When your server side is all set and done You can clone this app by copying this code in to your terminal:
 
